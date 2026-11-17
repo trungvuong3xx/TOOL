@@ -1,4 +1,4 @@
-const CACHE = 'tiktok-reply-pwa-v3';
+const CACHE = 'tiktok-reply-pwa-v4';
 const ASSETS = ['index.html', 'pwa.js', 'manifest.webmanifest', 'icon.svg', 'icon-180.png', 'icon-192.png', 'icon-512.png', 'icon-maskable.png'];
 const assetUrl = path => new URL(path, self.registration.scope).href;
 self.addEventListener('install', event => {

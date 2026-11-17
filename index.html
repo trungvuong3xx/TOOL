@@ -21,79 +21,59 @@
     button { cursor: pointer; }
     button:disabled { opacity: .45; cursor: not-allowed; }
     :focus-visible { outline: 3px solid #13877d; outline-offset: 3px; }
-    .wrap { max-width: 1120px; padding: 38px 28px; margin: auto; }
-    header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid #ddded7; }
-    .brand { display: flex; gap: 12px; align-items: center; font-weight: 700; }
-    .brand-icon { display: grid; place-items: center; width: 40px; height: 40px; background: #20262b; color: #fff; border-radius: 12px; font-size: 24px; }
-    .badge { color: #487061; background: #e6eee6; border-radius: 30px; padding: 7px 12px; font-size: 12px; white-space: nowrap; }
-    .intro { margin: 36px 0 28px; }
-    .eyebrow { color: #707970; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; font-weight: 700; }
-    h1 { font-size: clamp(27px, 4vw, 39px); letter-spacing: -1.3px; margin: 10px 0 12px; }
-    .intro p { color: #656d70; line-height: 1.6; margin: 0; }
-    .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-    .card { background: #fff; border: 1px solid #e0e3db; border-radius: 20px; padding: 26px; }
-    h2 { font-size: 18px; margin: 0 0 24px; display: flex; align-items: center; gap: 10px; }
-    .step { display: inline-grid; place-items: center; font-size: 12px; background: #f0f2ee; color: #586258; width: 26px; height: 26px; border-radius: 50%; }
-    .field-header { display: flex; justify-content: space-between; align-items: center; margin: 22px 0 9px; }
+    .wrap { max-width: 960px; padding: 22px 18px; margin: auto; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 16px; margin-bottom: 20px; border-bottom: 1px solid #ddded7; }
+    .brand { display: flex; gap: 10px; align-items: center; font-weight: 700; font-size: 17px; }
+    .brand-icon { display: grid; place-items: center; width: 36px; height: 36px; background: #20262b; color: #fff; border-radius: 10px; font-size: 20px; }
+    .badge { color: #487061; background: #e6eee6; border-radius: 30px; padding: 6px 12px; font-size: 12px; white-space: nowrap; }
+    .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+    .card { background: #fff; border: 1px solid #e0e3db; border-radius: 16px; padding: 20px; }
+    h2 { font-size: 16px; margin: 0 0 16px; display: flex; align-items: center; gap: 8px; }
+    .step { display: inline-grid; place-items: center; font-size: 12px; background: #f0f2ee; color: #586258; width: 24px; height: 24px; border-radius: 50%; font-weight: 600; }
+    .field-header { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 6px; }
     .field-header label { margin: 0; }
-    .btn-paste { min-height: 32px; height: 32px; padding: 0 12px; font-size: 13px; font-weight: 600; border-radius: 8px; background: #eaf0e6; border: 1px solid #d2dfce; color: #2e5939; display: inline-flex; align-items: center; gap: 4px; }
+    .btn-paste { min-height: 30px; height: 30px; padding: 0 10px; font-size: 12.5px; font-weight: 600; border-radius: 7px; background: #eaf0e6; border: 1px solid #d2dfce; color: #2e5939; display: inline-flex; align-items: center; gap: 4px; }
     .btn-paste:active { background: #d7e6d2; }
-    label { display: block; font-size: 14px; font-weight: 650; margin: 22px 0 9px; }
-    input { width: 100%; padding: 14px; border: 1px solid #d9ded5; border-radius: 10px; min-height: 49px; background: #fbfcfa; color: #20262b; }
+    label { display: block; font-size: 13.5px; font-weight: 650; margin: 14px 0 6px; }
+    label:first-of-type { margin-top: 0; }
+    input { width: 100%; padding: 12px 14px; border: 1px solid #d9ded5; border-radius: 9px; min-height: 46px; background: #fbfcfa; color: #20262b; font-size: 15px; }
     input[aria-invalid="true"] { border-color: #ba3838; }
-    small { display: block; margin-top: 8px; line-height: 1.5; color: #6d7578; font-size: 12px; }
-    .formula { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 13px 15px; margin: 24px 0; border-radius: 10px; background: #f3f5f0; font-size: 12px; color: #53614e; }
-    .actions { display: flex; gap: 10px; }
-    button { min-height: 48px; border-radius: 11px; font-weight: 650; padding: 12px 18px; border: 1px solid #d9ded5; background: #fff; color: #333d36; }
+    .actions { display: flex; gap: 8px; margin-top: 18px; }
+    button { min-height: 46px; border-radius: 10px; font-weight: 650; padding: 10px 16px; border: 1px solid #d9ded5; background: #fff; color: #333d36; }
     .primary { flex: 1; border-color: #20262b; color: white; background: #20262b; }
     .primary:hover { background: #35443d; }
-    .cashback { padding: 20px; background: #eaf4ec; border-radius: 14px; margin-top: 22px; }
-    .cashback .caption { font-size: 12px; color: #44674e; }
-    .cashback strong { display: block; font-size: 34px; letter-spacing: -1px; margin-top: 7px; color: #205e39; }
-    dl { font-size: 13px; color: #657068; margin: 17px 0 0; }
-    dl div { display: flex; justify-content: space-between; gap: 12px; padding-top: 9px; }
-    dd { margin: 0; font-weight: 600; color: #37483b; }
     .message-card { background: #fcfcfa; }
     .message-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
     .message-heading span:last-child { color: #80877e; font-size: 12px; }
-    textarea { display: block; width: 100%; min-height: 320px; resize: vertical; padding: 20px; border: 1px solid #dfe4da; border-radius: 14px; background: #fff; font-size: 15px; line-height: 1.8; color: #2a3430; }
-    textarea::placeholder { color: #8c948b; }
-    .copy { background: #20262b; border-color: #20262b; color: #fff; width: 100%; margin-top: 16px; font-size: 15px; font-weight: 650; transition: background-color 0.2s, border-color 0.2s, transform 0.1s; }
+    textarea { display: block; width: 100%; min-height: 150px; resize: vertical; padding: 16px; border: 1px solid #dfe4da; border-radius: 12px; background: #fff; font-size: 15px; line-height: 1.6; color: #2a3430; }
+    textarea::placeholder { color: #8c948b; font-size: 13.5px; }
+    .copy { background: #20262b; border-color: #20262b; color: #fff; width: 100%; margin-top: 16px; font-size: 15px; font-weight: 650; min-height: 48px; transition: background-color 0.2s, border-color 0.2s, transform 0.1s; }
     .copy:not(:disabled):hover { background: #35443d; border-color: #35443d; }
     .copy:not(:disabled):active { transform: scale(0.99); }
     .copy.copied { background: #205e39 !important; border-color: #205e39 !important; color: #fff !important; }
-    .note { color: #7a8178; font-size: 12px; line-height: 1.6; margin: 14px 0 0; }
-    .feedback { min-height: 22px; margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: #316546; }
+    .feedback { min-height: 20px; margin: 10px 0 0; font-size: 13px; line-height: 1.4; color: #316546; }
     .feedback.error { color: #a42c2c; }
-    footer { margin-top: 25px; font-size: 12px; color: #868c81; text-align: center; }
-    .install { margin-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 15px 18px; border: 1px solid #d9e4d7; background: #eaf0e5; border-radius: 14px; }
-    .install p { flex: 1 1 230px; margin: 0; font-size: 13px; color: #466047; line-height: 1.6; }
-    dialog { max-width: min(440px, calc(100% - 32px)); padding: 26px; border: 1px solid #d9ded5; border-radius: 20px; color: #20262b; }
+    footer { margin-top: 20px; font-size: 12px; color: #868c81; text-align: center; }
+    .install { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid #d9e4d7; background: #eaf0e5; border-radius: 12px; }
+    .install p { flex: 1 1 230px; margin: 0; font-size: 13px; color: #466047; line-height: 1.5; }
+    dialog { max-width: min(440px, calc(100% - 32px)); padding: 24px; border: 1px solid #d9ded5; border-radius: 18px; color: #20262b; }
     dialog::backdrop { background: #20262b80; }
-    dialog p { line-height: 1.7; }
+    dialog p { line-height: 1.6; }
     [hidden] { display: none !important; }
     @media (max-width: 720px) {
-      .wrap { padding: 16px 14px 40px; }
-      header { padding-bottom: 16px; }
-      .intro { margin: 18px 0 16px; }
-      .intro .eyebrow { font-size: 10px; }
-      h1 { font-size: 24px; letter-spacing: -0.8px; margin: 6px 0 6px; }
-      .intro p { font-size: 14px; }
-      .layout { grid-template-columns: 1fr; gap: 16px; }
-      .card { padding: 18px 16px; border-radius: 16px; }
-      h2 { font-size: 16px; margin: 0 0 16px; }
-      label { font-size: 13.5px; margin: 16px 0 6px; }
-      .field-header { margin: 16px 0 6px; }
-      input, textarea { font-size: 16px !important; } /* Ngăn iOS Safari tự động zoom trang */
-      input { min-height: 46px; padding: 12px; border-radius: 9px; }
-      textarea { min-height: 150px; padding: 14px; font-size: 15px !important; line-height: 1.6; border-radius: 12px; }
-      .formula { margin: 16px 0; padding: 10px 12px; font-size: 11.5px; gap: 6px; }
-      .actions { gap: 8px; }
-      button { min-height: 46px; border-radius: 10px; }
-      .cashback { padding: 16px; margin-top: 16px; border-radius: 12px; }
-      .cashback .caption { font-size: 11px; }
-      .cashback strong { font-size: 28px; margin-top: 4px; }
-      .copy { min-height: 48px; font-size: 15px; }
+      .wrap { padding: 14px 12px 28px; }
+      header { padding-bottom: 12px; margin-bottom: 14px; }
+      .layout { grid-template-columns: 1fr; gap: 14px; }
+      .card { padding: 16px 14px; border-radius: 14px; }
+      h2 { font-size: 15px; margin-bottom: 14px; }
+      label { font-size: 13px; margin: 12px 0 5px; }
+      .field-header { margin: 12px 0 5px; }
+      input, textarea { font-size: 16px !important; } /* Ngăn iOS Safari tự zoom */
+      input { min-height: 44px; padding: 10px 12px; }
+      textarea { min-height: 130px; padding: 12px; font-size: 15px !important; }
+      .actions { margin-top: 14px; gap: 8px; }
+      button { min-height: 44px; }
+      .copy { min-height: 48px; }
     }
   </style>
 </head>
@@ -113,11 +93,6 @@
       <p>Nếu đang mở trong Zalo, hãy chọn mở bằng Safari hoặc Chrome trước.</p>
       <form method="dialog"><button>Đã hiểu</button></form>
     </dialog>
-    <div class="intro">
-      <span class="eyebrow">Công cụ soạn tin nhắn</span>
-      <h1>Có link rồi. Soạn tin thôi.</h1>
-      <p>Nhập hoa hồng, tạo mẫu và gửi cho khách qua Zalo.</p>
-    </div>
     <div class="layout">
       <section class="card" id="inputCard" aria-labelledby="inputTitle">
         <h2 id="inputTitle"><span class="step">1</span> Thông tin affiliate</h2>
@@ -127,35 +102,28 @@
             <button type="button" id="pasteLinkButton" class="btn-paste" title="Dán nhanh từ bộ nhớ tạm">📋 Dán link</button>
           </div>
           <input id="affiliateLink" type="url" inputmode="url" placeholder="https://vt.tiktok.com/..." maxlength="4000" autocomplete="off" required>
-          <small>Link affiliate bạn đã tạo trên TikTok hoặc nền tảng tiếp thị.</small>
 
           <label for="commission">Hoa hồng gốc trước thuế (đ)</label>
-          <input id="commission" type="text" inputmode="numeric" pattern="[0-9.,]*" placeholder="Ví dụ: 25000 hoặc 25.000" autocomplete="off" required aria-describedby="commissionHint">
-          <small id="commissionHint">Nhập số tiền hoa hồng trước khi chia, không nhập % hay tiền hoàn của khách.</small>
+          <input id="commission" type="text" inputmode="numeric" pattern="[0-9.,]*" placeholder="Ví dụ: 25000 hoặc 25.000" autocomplete="off" required>
 
           <label for="customMessage">Lời nhắn gửi khách</label>
           <input id="customMessage" type="text" placeholder="Đặt hàng qua link trên để nhận hoàn tiền nhé." autocomplete="off" maxlength="500">
-          <small>Lời nhắn này tự lưu trên máy, dùng lại cho các lần sau mà không lo mất.</small>
 
-          <div class="formula"><span>Trừ thuế: <b>10%</b></span><span>Khách: <b>70%</b> sau thuế</span><span>Bạn: <b>30%</b> sau thuế</span></div>
-          <div class="actions"><button class="primary" type="submit">Tạo tin nhắn ↗</button><button id="resetButton" type="reset">Làm mới</button></div>
+          <div class="actions">
+            <button class="primary" type="submit">Tạo tin nhắn ↗</button>
+            <button id="resetButton" type="reset">Làm mới</button>
+          </div>
           <p id="formStatus" class="feedback" role="status" aria-live="polite"></p>
         </form>
-        <div class="cashback" aria-live="polite">
-          <span class="caption">KHÁCH ĐƯỢC HOÀN ƯỚC TÍNH</span>
-          <strong id="cashback">—</strong>
-          <dl><div><dt>Hoa hồng gốc</dt><dd id="gross">—</dd></div><div><dt>Thuế 10%</dt><dd id="tax">—</dd></div><div><dt>Phần của bạn sau thuế</dt><dd id="adminShare">—</dd></div></dl>
-        </div>
       </section>
       <section class="card message-card" id="outputCard" aria-labelledby="outputTitle">
         <div class="message-heading"><h2 id="outputTitle"><span class="step">2</span> Tin nhắn gửi khách</h2><span>Sẵn sàng cho Zalo</span></div>
-        <textarea id="replyOutput" readonly aria-label="Nội dung tin nhắn" placeholder="Tin nhắn của bạn sẽ xuất hiện ở đây.&#10;&#10;Chỉ gồm link đặt hàng, tiền hoàn ước tính và lời nhắn cho khách."></textarea>
+        <textarea id="replyOutput" readonly aria-label="Nội dung tin nhắn" placeholder="Tin nhắn sẽ tự động tạo tại đây khi dán link và nhập hoa hồng."></textarea>
         <button id="copyButton" type="button" class="copy" disabled>Sao chép tin nhắn</button>
         <p id="copyStatus" class="feedback" role="status" aria-live="polite"></p>
-        <p class="note">Tiền thuế và phần chia của bạn chỉ hiển thị trong bảng tính bên trái, không đưa vào tin nhắn.</p>
       </section>
     </div>
-    <footer>Công cụ độc lập · Không cần đăng nhập · Dữ liệu chỉ ở trang này và được xóa khi tải lại</footer>
+    <footer>Công cụ độc lập · Không lưu dữ liệu</footer>
   </main>
   <script>
     (() => {
@@ -178,29 +146,11 @@
       const savedNote = localStorage.getItem(STORAGE_KEY);
       customMessageInput.value = (savedNote !== null && savedNote !== undefined) ? savedNote : DEFAULT_NOTE;
 
-      // Tự động lưu khi sửa lời nhắn
+      // Tự động lưu khi sửa lời nhắn & cập nhật kết quả ngay
       customMessageInput.addEventListener('input', () => {
         localStorage.setItem(STORAGE_KEY, customMessageInput.value);
+        tryAutoGenerate();
       });
-
-      // Nút dán nhanh link từ clipboard
-      if (pasteLinkBtn) {
-        pasteLinkBtn.addEventListener('click', async () => {
-          try {
-            if (navigator.clipboard?.readText) {
-              const text = await navigator.clipboard.readText();
-              if (text && text.trim()) {
-                linkInput.value = text.trim();
-                clearResult();
-                commissionInput.focus();
-                return;
-              }
-            }
-          } catch { /* Trình duyệt yêu cầu cấp quyền hoặc không hỗ trợ */ }
-          linkInput.focus();
-          linkInput.select();
-        });
-      }
 
       function clearResult() {
         revision++;
@@ -211,7 +161,6 @@
         byId('copyStatus').textContent = '';
         byId('formStatus').textContent = '';
         byId('formStatus').classList.remove('error');
-        for (const id of ['gross', 'tax', 'adminShare', 'cashback']) byId(id).textContent = '—';
         linkInput.removeAttribute('aria-invalid');
         commissionInput.removeAttribute('aria-invalid');
       }
@@ -223,10 +172,76 @@
         input.focus();
       }
 
-      // Xóa kết quả khi sửa link hoặc tiền hoa hồng
+      function computeCashback(rawCommission) {
+        if (!/^(?:\d+|\d{1,3}(?:\.\d{3})+|\d{1,3}(?:,\d{3})+)$/.test(rawCommission)) return null;
+        const gross = Number(rawCommission.replace(/[.,]/g, ''));
+        if (!Number.isSafeInteger(gross) || gross > 1000000000000 || gross <= 0) return null;
+        const tax = Math.round(gross * 0.1);
+        const net = gross - tax;
+        return Math.round(net * 0.7);
+      }
+
+      function isValidUrl(link) {
+        try {
+          const url = new URL(link);
+          return url.protocol === 'https:' && !url.username && !url.password && !/\s/.test(link) && link.length <= 4000;
+        } catch {
+          return false;
+        }
+      }
+
+      function tryAutoGenerate() {
+        const link = linkInput.value.trim();
+        const raw = commissionInput.value.trim();
+        if (!link || !raw) return false;
+        if (!isValidUrl(link)) return false;
+        const cashback = computeCashback(raw);
+        if (cashback === null) return false;
+
+        const customNote = customMessageInput.value.trim() || DEFAULT_NOTE;
+        output.value = [
+          '🛒 Link đặt hàng TikTok:',
+          link,
+          `💰 Hoàn tiền ước tính: ${money(cashback)}`,
+          customNote
+        ].filter(Boolean).join('\n');
+
+        copyButton.disabled = false;
+        byId('formStatus').textContent = '';
+        byId('formStatus').classList.remove('error');
+        linkInput.removeAttribute('aria-invalid');
+        commissionInput.removeAttribute('aria-invalid');
+        return true;
+      }
+
+      // Nút dán nhanh link từ clipboard
+      if (pasteLinkBtn) {
+        pasteLinkBtn.addEventListener('click', async () => {
+          try {
+            if (navigator.clipboard?.readText) {
+              const text = await navigator.clipboard.readText();
+              if (text && text.trim()) {
+                linkInput.value = text.trim();
+                if (!tryAutoGenerate()) {
+                  if (!commissionInput.value.trim()) {
+                    commissionInput.focus();
+                  }
+                }
+                return;
+              }
+            }
+          } catch { /* Trình duyệt yêu cầu cấp quyền hoặc không hỗ trợ */ }
+          linkInput.focus();
+          linkInput.select();
+        });
+      }
+
+      // Tự động tạo tin nhắn ngay khi gõ hoặc sửa
       form.addEventListener('input', event => {
         if (event.target === linkInput || event.target === commissionInput) {
-          clearResult();
+          if (!tryAutoGenerate()) {
+            clearResult();
+          }
         }
       });
 
@@ -241,33 +256,19 @@
 
       form.addEventListener('submit', event => {
         event.preventDefault();
-        clearResult();
         const link = linkInput.value.trim();
-        try {
-          const url = new URL(link);
-          if (url.protocol !== 'https:' || url.username || url.password || /\s/.test(link) || link.length > 4000) throw new Error('Invalid URL');
-        } catch {
+        if (!isValidUrl(link)) {
+          clearResult();
           fail(linkInput, 'Dán một link affiliate đầy đủ, bắt đầu bằng https://.');
           return;
         }
         const raw = commissionInput.value.trim();
-        // Chấp nhận số nguyên VND hoặc có dấu chấm/phẩy phân cách hàng nghìn
-        if (!/^(?:\d+|\d{1,3}(?:\.\d{3})+|\d{1,3}(?:,\d{3})+)$/.test(raw)) {
+        const cashback = computeCashback(raw);
+        if (cashback === null) {
+          clearResult();
           fail(commissionInput, 'Nhập số đồng nguyên không âm, ví dụ 25000 hoặc 25.000.');
           return;
         }
-        const gross = Number(raw.replace(/[.,]/g, ''));
-        if (!Number.isSafeInteger(gross) || gross > 1000000000000) {
-          fail(commissionInput, 'Số tiền quá lớn. Vui lòng kiểm tra lại hoa hồng.');
-          return;
-        }
-        const tax = Math.round(gross * 0.1);
-        const net = gross - tax;
-        const cashback = Math.round(net * 0.7);
-        byId('gross').textContent = money(gross);
-        byId('tax').textContent = money(tax);
-        byId('adminShare').textContent = money(net - cashback);
-        byId('cashback').textContent = money(cashback);
 
         const customNote = customMessageInput.value.trim() || DEFAULT_NOTE;
         output.value = [
@@ -277,7 +278,7 @@
           customNote
         ].filter(Boolean).join('\n');
         copyButton.disabled = false;
-        byId('formStatus').textContent = 'Đã tạo mẫu. Bấm Sao chép tin nhắn để gửi khách.';
+        byId('formStatus').textContent = 'Đã tạo tin nhắn! Bấm Sao chép để gửi khách.';
 
         // Tự cuộn mượt xuống Bước 2 trên màn hình điện thoại
         if (window.innerWidth <= 720 && outputCard) {
