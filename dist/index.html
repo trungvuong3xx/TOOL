@@ -271,10 +271,11 @@
 
         const customNote = customMessageInput.value.trim() || DEFAULT_NOTE;
         output.value = [
-          '🛒 Link đặt hàng TikTok:', link, '',
-          `💰 Hoàn tiền ước tính: ${money(cashback)}`, '',
+          '🛒 Link đặt hàng TikTok:',
+          link,
+          `💰 Hoàn tiền ước tính: ${money(cashback)}`,
           customNote
-        ].join('\n');
+        ].filter(Boolean).join('\n');
         copyButton.disabled = false;
         byId('formStatus').textContent = 'Đã tạo mẫu. Bấm Sao chép tin nhắn để gửi khách.';
 
