@@ -12,7 +12,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="apple-touch-icon" href="./icon-180.png">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <script src="./pwa.js" defer></script>
   <style>
     * { box-sizing: border-box; }
     :root { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #20262b; background: #f5f5f1; }
@@ -136,19 +135,21 @@
       const output = byId('replyOutput');
       const copyButton = byId('copyButton');
       const outputCard = byId('outputCard');
-      const money = value => `${value.toLocaleString('vi-VN')}đ`;
+      const moneyFormatter = new Intl.NumberFormat('vi-VN');
+      const money = value => `${moneyFormatter.format(value)}đ`;
 
       const STORAGE_KEY = 'tiktok_cashback_custom_note';
       const DEFAULT_NOTE = 'Đặt hàng qua link trên để nhận hoàn tiền nhé.';
       let revision = 0;
 
       // Khôi phục lời nhắn đã lưu hoặc dùng mặc định
-      const savedNote = localStorage.getItem(STORAGE_KEY);
+      let savedNote = null;
+      try { savedNote = localStorage.getItem(STORAGE_KEY); } catch { /* Storage can be blocked. */ }
       customMessageInput.value = (savedNote !== null && savedNote !== undefined) ? savedNote : DEFAULT_NOTE;
 
       // Tự động lưu khi sửa lời nhắn & cập nhật kết quả ngay
       customMessageInput.addEventListener('input', () => {
-        localStorage.setItem(STORAGE_KEY, customMessageInput.value);
+        try { localStorage.setItem(STORAGE_KEY, customMessageInput.value); } catch { /* Keep the tool usable. */ }
         tryAutoGenerate();
       });
 
@@ -191,6 +192,7 @@
       }
 
       function tryAutoGenerate() {
+        clearResult();
         const link = linkInput.value.trim();
         const raw = commissionInput.value.trim();
         if (!link || !raw) return false;
@@ -239,9 +241,7 @@
       // Tự động tạo tin nhắn ngay khi gõ hoặc sửa
       form.addEventListener('input', event => {
         if (event.target === linkInput || event.target === commissionInput) {
-          if (!tryAutoGenerate()) {
-            clearResult();
-          }
+          tryAutoGenerate();
         }
       });
 
@@ -270,14 +270,7 @@
           return;
         }
 
-        const customNote = customMessageInput.value.trim() || DEFAULT_NOTE;
-        output.value = [
-          '🛒 Link đặt hàng TikTok:',
-          link,
-          `💰 Hoàn tiền ước tính: ${money(cashback)}`,
-          customNote
-        ].filter(Boolean).join('\n');
-        copyButton.disabled = false;
+        tryAutoGenerate();
         byId('formStatus').textContent = 'Đã tạo tin nhắn! Bấm Sao chép để gửi khách.';
 
         // Tự cuộn mượt xuống Bước 2 trên màn hình điện thoại
@@ -325,5 +318,55 @@
       });
     })();
   </script>
+<script>
+(() => {
+  const status = document.getElementById('pwaStatus');
+  const panel = document.getElementById('installPanel');
+  const button = document.getElementById('installButton');
+  const guide = document.getElementById('installGuide');
+  let installPrompt = null;
+  let offlineReady = false;
+  const standalone = () => window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  function update() {
+    status.textContent = offlineReady
+      ? (navigator.onLine === false ? 'Đang dùng ngoại tuyến' : 'Sẵn sàng dùng ngoại tuyến')
+      : 'Công cụ độc lập';
+    panel.hidden = standalone();
+  }
+  button.addEventListener('click', async () => {
+    if (installPrompt) {
+      const prompt = installPrompt;
+      installPrompt = null;
+      try { await prompt.prompt(); await prompt.userChoice; } catch { showGuide(); }
+      return;
+    }
+    showGuide();
+  });
+  function showGuide() {
+    document.getElementById('installInstructions').textContent = location.protocol === 'file:'
+      ? 'Để cài trên điện thoại, hãy mở đường link HTTPS của công cụ. File trên máy tính vẫn dùng được trực tiếp.'
+      : ios
+        ? 'Mở trang bằng Safari → nhấn Chia sẻ → Thêm vào Màn hình chính → bật Mở dưới dạng ứng dụng web nếu có → Thêm.'
+        : 'Mở trang bằng Chrome → nhấn menu ⋮ → Cài đặt ứng dụng hoặc Thêm vào màn hình chính. Trên máy tính, dùng biểu tượng cài đặt trên thanh địa chỉ nếu có.';
+    guide.showModal();
+  }
+  window.addEventListener('beforeinstallprompt', event => {
+    event.preventDefault();
+    installPrompt = event;
+    update();
+  });
+  window.addEventListener('appinstalled', () => { installPrompt = null; panel.hidden = true; });
+  window.addEventListener('online', update);
+  window.addEventListener('offline', update);
+  update();
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+      .then(() => navigator.serviceWorker.ready)
+      .then(() => { offlineReady = true; update(); })
+      .catch(() => { status.textContent = 'Chưa lưu được ngoại tuyến — thử tải lại khi có mạng'; });
+  }
+})();
+</script>
 </body>
 </html>
